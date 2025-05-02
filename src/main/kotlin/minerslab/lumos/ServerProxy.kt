@@ -1,4 +1,3 @@
 package minerslab.lumos
 
-class ServerProxy : CommonProxy() {
-}
+class ServerProxy : CommonProxy()

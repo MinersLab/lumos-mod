@@ -17,26 +17,32 @@ import minerslab.lumos.registry.recipe.ModRecipeTypes
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.crafting.RecipeHolder
 
-
-class LumiumConversionRecipeJeiCategory(helpers: IJeiHelpers) : ModularUIRecipeCategory<RecipeHolder<LumiumConversionRecipe>>({ LumiumConversionRecipeWrapper(it.value) }) {
-
+class LumiumConversionRecipeJeiCategory(
+    helpers: IJeiHelpers,
+) : ModularUIRecipeCategory<RecipeHolder<LumiumConversionRecipe>>({
+        LumiumConversionRecipeWrapper(it.value)
+    }) {
     companion object {
         @Suppress("UNCHECKED_CAST")
-        val RECIPE_TYPE = RecipeType(Lumos.id("lumium_conversion"), RecipeHolder::class.java) as RecipeType<RecipeHolder<LumiumConversionRecipe>>
+        val RECIPE_TYPE =
+            RecipeType(
+                Lumos.id("lumium_conversion"),
+                RecipeHolder::class.java,
+            ) as RecipeType<RecipeHolder<LumiumConversionRecipe>>
 
         fun registerRecipes(registration: IRecipeRegistration) {
             registration.addRecipes(
                 RECIPE_TYPE,
-                getRecipeHoldersFromType(ModRecipeTypes.LUMIUM_CONVERSION.get())
+                getRecipeHoldersFromType(ModRecipeTypes.LUMIUM_CONVERSION.get()),
             )
         }
-
     }
 
     private val background = helpers.guiHelper.createBlankDrawable(LumiumConversionRecipeWidget.WIDTH, LumiumConversionRecipeWidget.HEIGHT)
 
-    private val icon: IDrawable = helpers.guiHelper
-        .createDrawableItemStack(ItemStack(ModFluids.LUMIUM.get().bucket))
+    private val icon: IDrawable =
+        helpers.guiHelper
+            .createDrawableItemStack(ItemStack(ModFluids.LUMIUM.get().bucket))
 
     override fun getIcon() = icon
 
@@ -47,5 +53,4 @@ class LumiumConversionRecipeJeiCategory(helpers: IJeiHelpers) : ModularUIRecipeC
     override fun getTitle() = xeiCategoryTitle("lumium_conversion")
 
     override fun getRecipeType() = RECIPE_TYPE
-
 }

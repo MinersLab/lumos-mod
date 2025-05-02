@@ -11,7 +11,6 @@ import net.neoforged.neoforge.registries.DeferredHolder
 import net.neoforged.neoforge.registries.DeferredRegister
 
 object ModRecipeSerializers : IBootstrap {
-
     @JvmField
     val RECIPE_SERIALIZERS: DeferredRegister<RecipeSerializer<*>> = DeferredRegister.create(Registries.RECIPE_SERIALIZER, ID)
 
@@ -22,5 +21,4 @@ object ModRecipeSerializers : IBootstrap {
     override fun bootstrap(bus: IEventBus) {
         RECIPE_SERIALIZERS.register(bus)
     }
-
 }

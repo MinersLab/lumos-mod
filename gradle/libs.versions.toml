@@ -1,6 +1,9 @@
 [versions]
+# Plugins
 moddev-gradle = "2.0.78"
+spotless-gradle = "7.0.2"
 kotlin = "2.1.20"
+# Dependencies
 kotlin-for-forge = "5.7.0"
 registrate = "MC1.21-1.3.0+55"
 emi = "1.1.22+1.21.1"
@@ -8,6 +11,7 @@ jei = "19.21.0.247"
 ldlib = "6260254"
 
 [plugins]
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless-gradle" }
 moddev = { id = "net.neoforged.moddev", version.ref = "moddev-gradle" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

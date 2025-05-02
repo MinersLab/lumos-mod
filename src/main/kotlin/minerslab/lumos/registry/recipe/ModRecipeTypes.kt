@@ -11,7 +11,6 @@ import net.neoforged.neoforge.registries.DeferredHolder
 import net.neoforged.neoforge.registries.DeferredRegister
 
 object ModRecipeTypes : IBootstrap {
-
     @JvmField
     val RECIPE_TYPES: DeferredRegister<RecipeType<*>> = DeferredRegister.create(Registries.RECIPE_TYPE, ID)
 
@@ -22,5 +21,4 @@ object ModRecipeTypes : IBootstrap {
     override fun bootstrap(bus: IEventBus) {
         RECIPE_TYPES.register(bus)
     }
-
 }

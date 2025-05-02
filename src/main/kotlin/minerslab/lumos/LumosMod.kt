@@ -14,35 +14,33 @@ import thedarkcolour.kotlinforforge.neoforge.KotlinModLoadingContext
 import thedarkcolour.kotlinforforge.neoforge.forge.runForDist
 
 object Lumos {
-
     const val ID = "lumos"
-    fun id(path: String) = ResourceLocation.tryBuild(ID, path)!!
 
+    fun id(path: String) = ResourceLocation.tryBuild(ID, path)!!
 }
 
 @Mod(Lumos.ID)
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 object LumosMod {
-
     private val context = KotlinModLoadingContext.get()
 
     @JvmField
     val REGISTRATE = LumosRegistrate(Lumos.ID).apply { registerEventListeners(context.getKEventBus()) }
 
     val logger: Logger = LogManager.getLogger(Lumos.ID)
-    val proxy: CommonProxy = runForDist(
-        ::ClientProxy, ::ServerProxy
-    )
+    val proxy: CommonProxy =
+        runForDist(
+            ::ClientProxy,
+            ::ServerProxy,
+        )
 
     init {
         proxy.initialize(context.getKEventBus())
     }
 
-
     private fun onClientSetup(event: FMLClientSetupEvent) {
         logger.info("[$event] Initializing client...")
     }
-
 
     private fun onServerSetup(event: FMLDedicatedServerSetupEvent) {
         logger.info("[$event] Server starting...")
@@ -52,5 +50,4 @@ object LumosMod {
     fun onCommonSetup(event: FMLCommonSetupEvent) {
         logger.info("[$event] Hello! This is working!")
     }
-
 }

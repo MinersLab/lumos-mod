@@ -12,10 +12,8 @@ import minerslab.lumos.registry.fluid.ModFluids
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.ItemStack
 
-
 @JeiPlugin
 class LumosJeiPlugin : IModPlugin {
-
     fun isDisabled() = Platform.isModLoaded("jei") || !Platform.isModLoaded("rei")
 
     override fun getPluginUid(): ResourceLocation = Lumos.id("jei_plugin")
@@ -35,5 +33,4 @@ class LumosJeiPlugin : IModPlugin {
         if (isDisabled()) return
         LumiumConversionRecipeJeiCategory.registerRecipes(registration)
     }
-
 }

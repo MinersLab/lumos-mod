@@ -13,15 +13,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ClientPacketListener.class)
 public class ClientPacketListenerMixin {
 
-    @Inject(method = "findTotem", remap = false, at = @At("RETURN"), cancellable = true)
-    private static void findTotem(Player player, CallbackInfoReturnable <ItemStack> cir) {
-        for (var hand : InteractionHand.values()) {
-            var item = player.getItemInHand(hand);
-            if (item.getItem() instanceof BaseTotemItem) {
-                cir.setReturnValue(item);
-                return;
-            }
-        }
-    }
-
+	@Inject(method = "findTotem", remap = false, at = @At("RETURN"), cancellable = true)
+	private static void findTotem(Player player, CallbackInfoReturnable<ItemStack> cir) {
+		for (var hand : InteractionHand.values()) {
+			var item = player.getItemInHand(hand);
+			if (item.getItem() instanceof BaseTotemItem) {
+				cir.setReturnValue(item);
+				return;
+			}
+		}
+	}
 }

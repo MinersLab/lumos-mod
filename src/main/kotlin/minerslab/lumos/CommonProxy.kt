@@ -8,7 +8,6 @@ import minerslab.lumos.registry.recipe.ModRecipeTypes
 import net.neoforged.bus.api.IEventBus
 
 abstract class CommonProxy {
-
     open fun initialize(bus: IEventBus) {
         ModItems.bootstrap(bus)
         ModFluids.bootstrap(bus)
@@ -18,5 +17,4 @@ abstract class CommonProxy {
 
         ModDatagen.run()
     }
-
 }

@@ -7,9 +7,7 @@ import minerslab.lumos.integration.emi.category.LumiumConversionRecipeEmiCategor
 
 @EmiEntrypoint
 class LumosEmiPlugin : EmiPlugin {
-
     override fun register(registry: EmiRegistry) {
         LumiumConversionRecipeEmiCategory().register(registry)
     }
-
 }

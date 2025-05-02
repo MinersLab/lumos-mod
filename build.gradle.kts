@@ -8,6 +8,7 @@ plugins {
     id("idea")
     id("maven-publish")
 
+    alias(libs.plugins.spotless)
     alias(libs.plugins.moddev)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.plugin.serialization)
@@ -202,5 +203,29 @@ idea {
     module {
         isDownloadSources = true
         isDownloadJavadoc = true
+    }
+}
+
+spotless {
+    format("misc") {
+        target("*.gradle", "*.gradle.kts", ".gitattributes", ".gitignore")
+
+        trimTrailingWhitespace()
+        leadingTabsToSpaces()
+        endWithNewline()
+    }
+    java {
+        toggleOffOn()
+        endWithNewline()
+        eclipse()
+    }
+    kotlin {
+        ktlint()
+        toggleOffOn()
+        endWithNewline()
+        suppressLintsFor {
+            step = "ktlint"
+            shortCode = "standard:no-wildcard-imports"
+        }
     }
 }

@@ -5,11 +5,10 @@ import com.tterrag.registrate.util.nullness.NonNullConsumer
 import minerslab.lumos.Lumos.ID
 
 object ModLanguageDatagen : NonNullConsumer<RegistrateLangProvider> {
-
-    override fun accept(provider: RegistrateLangProvider) = with(provider) {
-        "title.$ID.xei.category.lumium_conversion"("Lumium Conversion")
-    }
-
+    override fun accept(provider: RegistrateLangProvider) =
+        with(provider) {
+            "title.$ID.xei.category.lumium_conversion"("Lumium Conversion")
+        }
 }
 
 context(RegistrateLangProvider)

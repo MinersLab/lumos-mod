@@ -8,13 +8,22 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.neoforged.neoforge.fluids.BaseFlowingFluid
 
-open class LumosRegistrate(modid: String) : Registrate(modid) {
-
-    fun <T : Item> item(name: String, factory: (Item.Properties) -> T): ItemBuilder<T, Registrate> {
-        return item(name, NonNullFunction { factory(it) })
-    }
+open class LumosRegistrate(
+    modid: String,
+) : Registrate(modid) {
+    fun <T : Item> item(
+        name: String,
+        factory: (Item.Properties) -> T,
+    ): ItemBuilder<T, Registrate> = item(name, NonNullFunction { factory(it) })
 
     fun lumosFluid(name: String): FluidBuilder<BaseFlowingFluid.Flowing, Registrate> =
-        fluid(self(), name, ResourceLocation.fromNamespaceAndPath(modid, "block/" + name + "_still"), ResourceLocation.fromNamespaceAndPath(modid, "block/" + name + "_flow"))
-
+        fluid(
+            self(),
+            name,
+            ResourceLocation.fromNamespaceAndPath(modid, "block/" + name + "_still"),
+            ResourceLocation.fromNamespaceAndPath(
+                modid,
+                "block/" + name + "_flow",
+            ),
+        )
 }

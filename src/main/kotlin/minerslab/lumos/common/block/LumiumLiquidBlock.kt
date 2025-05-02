@@ -14,11 +14,21 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.material.FlowingFluid
 import kotlin.jvm.optionals.getOrNull
 
-class LumiumLiquidBlock(fluid: FlowingFluid, properties: Properties) : LiquidBlock(fluid, properties) {
-
-    fun doRecipe(entity: ItemEntity, level: Level) {
+class LumiumLiquidBlock(
+    fluid: FlowingFluid,
+    properties: Properties,
+) : LiquidBlock(fluid, properties) {
+    fun doRecipe(
+        entity: ItemEntity,
+        level: Level,
+    ) {
         val input = LumiumConversionRecipeInput(entity.item)
-        val recipe = level.server?.recipeManager?.getRecipeFor(ModRecipeTypes.LUMIUM_CONVERSION.get(), input, level)?.getOrNull()?.value ?: return
+        val recipe =
+            level.server
+                ?.recipeManager
+                ?.getRecipeFor(ModRecipeTypes.LUMIUM_CONVERSION.get(), input, level)
+                ?.getOrNull()
+                ?.value ?: return
         val result = recipe.assemble(input, level.registryAccess())
         if (!result.isEmpty && recipe.matches(input, level)) {
             val newItem = entity.item.copy()
@@ -29,7 +39,12 @@ class LumiumLiquidBlock(fluid: FlowingFluid, properties: Properties) : LiquidBlo
         }
     }
 
-    override fun entityInside(state: BlockState, level: Level, pos: BlockPos, entity: Entity) {
+    override fun entityInside(
+        state: BlockState,
+        level: Level,
+        pos: BlockPos,
+        entity: Entity,
+    ) {
         if (entity is ItemEntity) doRecipe(entity, level)
         if (entity is LivingEntity) {
             entity.addEffect(MobEffectInstance(MobEffects.GLOWING, 20 * 20))

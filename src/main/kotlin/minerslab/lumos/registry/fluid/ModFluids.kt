@@ -7,18 +7,23 @@ import minerslab.lumos.common.block.LumiumLiquidBlock
 import net.neoforged.neoforge.fluids.BaseFlowingFluid
 
 object ModFluids : IBootstrap {
-
     @JvmField
-    val LUMIUM: FluidEntry<BaseFlowingFluid.Flowing> = REGISTRATE.lumosFluid("lumium")
-        .properties { it.canSwim(true).canDrown(true).canHydrate(true).lightLevel(14) }
-        .source(BaseFlowingFluid::Source)
-        .block(::LumiumLiquidBlock)
-        .defaultLang()
-        .build()
-        .bucket()
-        .defaultModel()
-        .defaultLang()
-        .build()
-        .register()
-
+    val LUMIUM: FluidEntry<BaseFlowingFluid.Flowing> =
+        REGISTRATE
+            .lumosFluid("lumium")
+            .properties {
+                it
+                    .canSwim(true)
+                    .canDrown(true)
+                    .canHydrate(true)
+                    .lightLevel(14)
+            }.source(BaseFlowingFluid::Source)
+            .block(::LumiumLiquidBlock)
+            .defaultLang()
+            .build()
+            .bucket()
+            .defaultModel()
+            .defaultLang()
+            .build()
+            .register()
 }
