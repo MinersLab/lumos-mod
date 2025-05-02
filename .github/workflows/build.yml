@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches: ['main']
-    paths: ['src/**', '**/*.gradle', 'gradle.properties']
+    paths: ['src/**', '**/*.gradle', 'gradle.properties', '.github/**', 'gradle/**']
 
 jobs:
   build:
