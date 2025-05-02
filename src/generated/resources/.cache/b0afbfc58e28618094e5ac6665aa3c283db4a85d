@@ -1,0 +1,10 @@
+// 1.21.1	2025-05-02T14:18:56.6112784	Registrate Provider for lumos [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+a2af7ac1c10c44b2dd9b55e8b588ce313bc3f04d assets/lumos/blockstates/lumium.json
+f66611a7ed0b61c58e8bd1409c1e41582a11177a assets/lumos/lang/en_ud.json
+9a120aa9ec919e84b4a58a94af9ea984a1c1a473 assets/lumos/lang/en_us.json
+f7119758d125d6eb4d903efa85a7cbcd67e5f473 assets/lumos/models/block/lumium.json
+2b194a95ff2468c1313911bfbaa13706d74b0ee9 assets/lumos/models/item/defective_totem_of_undying.json
+2ec79ef3ec47769c7eb995f246a9b7318d2be5d9 assets/lumos/models/item/lumium_bucket.json
+472645efcd1c21016b4d8d57c45fbb3102d9fe7f assets/lumos/models/item/totem_of_undying_fragment.json
+dfc5807f2263f9f1d168524b630a9853ea1ebf6b data/lumos/advancement/recipes/combat/defective_totem_of_undying.json
+5a15b82869ca534bbe5680166ea6adb5b02e37ad data/lumos/recipe/defective_totem_of_undying.json

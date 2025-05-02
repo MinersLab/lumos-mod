@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "lumos:totem_of_undying_fragment"
+    },
+    {
+      "item": "lumos:totem_of_undying_fragment"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "lumos:defective_totem_of_undying"
+  }
+}
